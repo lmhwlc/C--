@@ -34,7 +34,6 @@ void fun()
 	for (int i = 0; i < name.size(); i++)
 		cout << name[i] << " " << value[i][0] << " " << value[i][1] << endl;
 	cout << endl;
-	cout << endl;
 }
 
 
