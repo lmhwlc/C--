@@ -2,8 +2,8 @@
 //
 
 #include <iostream>
+#include"test.h"
 
-void fun();
 
 int main()
 {
