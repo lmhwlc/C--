@@ -16,6 +16,12 @@
     <Filter Include="源文件\IO">
       <UniqueIdentifier>{dbfd0e7c-12f2-4d93-b96c-01a1851b8c44}</UniqueIdentifier>
     </Filter>
+    <Filter Include="源文件\设计模式">
+      <UniqueIdentifier>{2de85f71-3a72-4d4f-a1ad-c43c4b48236b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="头文件\设计模式">
+      <UniqueIdentifier>{477f4b6f-c441-4d57-9996-9c036a37b108}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="c++.cpp">
@@ -24,10 +30,22 @@
     <ClCompile Include="test1.cpp">
       <Filter>源文件\IO</Filter>
     </ClCompile>
+    <ClCompile Include="Observer.cpp">
+      <Filter>源文件\设计模式</Filter>
+    </ClCompile>
+    <ClCompile Include="Singleton.cpp">
+      <Filter>源文件\设计模式</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="test.h">
       <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="Observer.h">
+      <Filter>头文件\设计模式</Filter>
+    </ClInclude>
+    <ClInclude Include="Singleton.h">
+      <Filter>头文件\设计模式</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
