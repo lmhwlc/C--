@@ -153,10 +153,12 @@
   <ItemGroup>
     <ClCompile Include="c++.cpp" />
     <ClCompile Include="Observer.cpp" />
+    <ClCompile Include="override.cpp" />
     <ClCompile Include="Singleton.cpp" />
     <ClCompile Include="test1.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="override.h" />
     <ClInclude Include="Observer.h" />
     <ClInclude Include="Singleton.h" />
     <ClInclude Include="test.h" />

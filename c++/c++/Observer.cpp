@@ -1,6 +1,6 @@
 #include"Observer.h"
 
-void test()
+void ObserverTest()
 {
 	ConcreteSubject *subject = new ConcreteSubject();
 	ConceretObserver1 *ob1 = new ConceretObserver1(subject);

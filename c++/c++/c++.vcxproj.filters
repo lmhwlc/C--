@@ -22,6 +22,12 @@
     <Filter Include="头文件\设计模式">
       <UniqueIdentifier>{477f4b6f-c441-4d57-9996-9c036a37b108}</UniqueIdentifier>
     </Filter>
+    <Filter Include="源文件\函数">
+      <UniqueIdentifier>{07341e06-a351-40b4-9c8b-1c6668e9a687}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="头文件\函数">
+      <UniqueIdentifier>{021a0c1b-4af0-42fe-bea9-d92c41d2658b}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="c++.cpp">
@@ -36,6 +42,9 @@
     <ClCompile Include="Singleton.cpp">
       <Filter>源文件\设计模式</Filter>
     </ClCompile>
+    <ClCompile Include="override.cpp">
+      <Filter>源文件\函数</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="test.h">
@@ -46,6 +55,9 @@
     </ClInclude>
     <ClInclude Include="Singleton.h">
       <Filter>头文件\设计模式</Filter>
+    </ClInclude>
+    <ClInclude Include="override.h">
+      <Filter>头文件\函数</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
