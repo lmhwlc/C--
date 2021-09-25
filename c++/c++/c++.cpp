@@ -7,4 +7,7 @@
 int main()
 {
 	OverrideTest();
+	int *p = new int[10];
+	_CrtDumpMemoryLeaks();
+	return 0;
 }
