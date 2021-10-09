@@ -6,8 +6,6 @@
 
 int main()
 {
-	OverrideTest();
-	int *p = new int[10];
-	_CrtDumpMemoryLeaks();
+	TestMutilIO();
 	return 0;
 }

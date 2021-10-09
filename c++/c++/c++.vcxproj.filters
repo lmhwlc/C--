@@ -28,13 +28,19 @@
     <Filter Include="头文件\函数">
       <UniqueIdentifier>{021a0c1b-4af0-42fe-bea9-d92c41d2658b}</UniqueIdentifier>
     </Filter>
+    <Filter Include="头文件\多线程">
+      <UniqueIdentifier>{39af38bd-02ee-4021-8d4f-467ce1c367ce}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="源文件\多线程">
+      <UniqueIdentifier>{c2b324f8-5af8-4264-940e-9ce9438e7a97}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="头文件\IO">
+      <UniqueIdentifier>{2c00d2db-26d8-473a-8bd7-6ad2a7e70616}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="c++.cpp">
       <Filter>源文件</Filter>
-    </ClCompile>
-    <ClCompile Include="test1.cpp">
-      <Filter>源文件\IO</Filter>
     </ClCompile>
     <ClCompile Include="Observer.cpp">
       <Filter>源文件\设计模式</Filter>
@@ -44,6 +50,15 @@
     </ClCompile>
     <ClCompile Include="override.cpp">
       <Filter>源文件\函数</Filter>
+    </ClCompile>
+    <ClCompile Include="thread.cpp">
+      <Filter>源文件\多线程</Filter>
+    </ClCompile>
+    <ClCompile Include="memory.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="mutilIO.cpp">
+      <Filter>源文件\IO</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -58,6 +73,15 @@
     </ClInclude>
     <ClInclude Include="override.h">
       <Filter>头文件\函数</Filter>
+    </ClInclude>
+    <ClInclude Include="thread.h">
+      <Filter>头文件\多线程</Filter>
+    </ClInclude>
+    <ClInclude Include="memory.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="mutiIO.h">
+      <Filter>头文件\IO</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

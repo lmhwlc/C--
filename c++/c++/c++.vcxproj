@@ -152,16 +152,21 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="c++.cpp" />
+    <ClCompile Include="memory.cpp" />
     <ClCompile Include="Observer.cpp" />
     <ClCompile Include="override.cpp" />
     <ClCompile Include="Singleton.cpp" />
-    <ClCompile Include="test1.cpp" />
+    <ClCompile Include="mutilIO.cpp" />
+    <ClCompile Include="thread.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="memory.h" />
+    <ClInclude Include="mutiIO.h" />
     <ClInclude Include="override.h" />
     <ClInclude Include="Observer.h" />
     <ClInclude Include="Singleton.h" />
     <ClInclude Include="test.h" />
+    <ClInclude Include="thread.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

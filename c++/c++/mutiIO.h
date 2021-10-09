@@ -1,3 +1,4 @@
+#pragma once
 #include<iostream>
 using namespace std;
 #include<vector>
@@ -13,9 +14,8 @@ using namespace std;
 	输入的行数未知
 */
 
-void fun()
+void mutilIO()
 {
-	vector<string> ar;
 	vector<string> name;
 	vector<vector<int>> value;
 	string str;
@@ -23,7 +23,8 @@ void fun()
 	while (str.size())
 	{
 		istringstream is(str);
-		while (is>>str)
+		vector<string> ar;
+		while (is >> str)
 		{
 			ar.push_back(str);
 		}
@@ -34,5 +35,3 @@ void fun()
 	for (int i = 0; i < name.size(); i++)
 		cout << name[i] << " " << value[i][0] << " " << value[i][1] << endl;
 }
-
-

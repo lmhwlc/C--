@@ -1,8 +1,12 @@
 #pragma once
-void fun();
+void TestMeomory();
 
 void ObserverTest();
 
 void SingletonTest();
 
 void OverrideTest();
+
+void TestThread();
+
+void TestMutilIO();
