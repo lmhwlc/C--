@@ -60,6 +60,9 @@
     <ClCompile Include="mutilIO.cpp">
       <Filter>源文件\IO</Filter>
     </ClCompile>
+    <ClCompile Include="stl.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="test.h">
@@ -82,6 +85,9 @@
     </ClInclude>
     <ClInclude Include="mutiIO.h">
       <Filter>头文件\IO</Filter>
+    </ClInclude>
+    <ClInclude Include="stl.h">
+      <Filter>头文件</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

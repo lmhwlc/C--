@@ -10,3 +10,5 @@ void OverrideTest();
 void TestThread();
 
 void TestMutilIO();
+
+void TestStl();

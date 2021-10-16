@@ -20,9 +20,9 @@
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>15.0</VCProjectVersion>
-    <ProjectGuid>{23801EDB-B110-4918-B8C3-937C079C76A7}</ProjectGuid>
+    <ProjectGuid>{7FAF2997-4B32-4718-998E-75845EE9B245}</ProjectGuid>
     <Keyword>Win32Proj</Keyword>
-    <RootNamespace>c</RootNamespace>
+    <RootNamespace>thread</RootNamespace>
     <WindowsTargetPlatformVersion>10.0.19041.0</WindowsTargetPlatformVersion>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
@@ -151,24 +151,19 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="c++.cpp" />
-    <ClCompile Include="memory.cpp" />
-    <ClCompile Include="Observer.cpp" />
-    <ClCompile Include="override.cpp" />
-    <ClCompile Include="Singleton.cpp" />
-    <ClCompile Include="mutilIO.cpp" />
-    <ClCompile Include="stl.cpp" />
+    <ClCompile Include="test1.cpp" />
+    <ClCompile Include="test2.cpp" />
+    <ClCompile Include="test3.cpp" />
+    <ClCompile Include="test4.cpp" />
+    <ClCompile Include="test5.cpp" />
     <ClCompile Include="thread.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="memory.h" />
-    <ClInclude Include="mutiIO.h" />
-    <ClInclude Include="override.h" />
-    <ClInclude Include="Observer.h" />
-    <ClInclude Include="Singleton.h" />
-    <ClInclude Include="stl.h" />
-    <ClInclude Include="test.h" />
-    <ClInclude Include="thread.h" />
+    <ClInclude Include="test1.h" />
+    <ClInclude Include="test2.h" />
+    <ClInclude Include="test3.h" />
+    <ClInclude Include="test4.h" />
+    <ClInclude Include="test5.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

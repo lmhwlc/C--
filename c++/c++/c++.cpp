@@ -6,6 +6,6 @@
 
 int main()
 {
-	TestMutilIO();
+	TestStl();
 	return 0;
 }
