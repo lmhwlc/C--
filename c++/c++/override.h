@@ -5,15 +5,11 @@ using namespace std;
 //普通函数重载参数列表数量或者类型不同，不能根据返回值区分不同的函数，也不能根据参数列表中加const区分
 
 //类的成员函数可以根据const修饰函数实现重载
-void fun(int a, int b)
-{
-	cout << a << " " << b << endl;
-}
+void fun(int a, int b);
 
-void fun(int a)
-{
-	cout << a << endl;
-}
+
+void fun(int a);
+
 
 /*
 	普通函数不能根据参数列表加const来区分，因此这种形式不能重载
@@ -22,8 +18,6 @@ void fun(int a)
 		cout << "const" << a << endl;
 	}
 */
-
-
 
 class demo
 {
@@ -43,3 +37,6 @@ public:
 		cout << m << endl;
 	}
 };
+
+
+void OverrideTest();

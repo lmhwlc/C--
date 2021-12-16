@@ -167,7 +167,6 @@
     <ClInclude Include="Observer.h" />
     <ClInclude Include="Singleton.h" />
     <ClInclude Include="stl.h" />
-    <ClInclude Include="test.h" />
     <ClInclude Include="thread.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

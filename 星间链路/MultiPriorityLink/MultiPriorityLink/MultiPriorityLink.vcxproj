@@ -115,11 +115,12 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClInclude Include="ChainStrategy.h" />
-    <ClInclude Include="Info.h" />
+    <ClInclude Include="AccessDate.h" />
+    <ClInclude Include="LinkStrategy.h" />
     <ClInclude Include="Satelite.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="AccessDate.cpp" />
     <ClCompile Include="MutiPriorityLink.cpp" />
     <ClCompile Include="Satelite.cpp" />
   </ItemGroup>

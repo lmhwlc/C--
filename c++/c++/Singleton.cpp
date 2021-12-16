@@ -1,5 +1,8 @@
 #include"Singleton.h"
 
+SingletonA* SingletonA::pInstance = nullptr;
+SingletonB SingletonB::instance;
+
 void SingletonTest()
 {
 	//¿¡∫∫ Ω≤‚ ‘

@@ -4,6 +4,8 @@ using namespace std;
 #include<vector>
 #include<string>
 #include<sstream>
+#include<fstream>
+
 /*
 	如何输入多行数据，形如：
 	a 12 13
@@ -14,24 +16,13 @@ using namespace std;
 	输入的行数未知
 */
 
-void mutilIO()
-{
-	vector<string> name;
-	vector<vector<int>> value;
-	string str;
-	getline(cin, str);
-	while (str.size())
-	{
-		istringstream is(str);
-		vector<string> ar;
-		while (is >> str)
-		{
-			ar.push_back(str);
-		}
-		name.push_back(ar[0]);
-		value.push_back(vector<int>{stoi(ar[1]), stoi(ar[2])});
-		getline(cin, str);
-	}
-	for (int i = 0; i < name.size(); i++)
-		cout << name[i] << " " << value[i][0] << " " << value[i][1] << endl;
-}
+void mutilIO();
+
+
+/*
+	eg.一个txt文本demo.txt，里面内容如下：
+	1 2 3 6 5 4 7 8 9 6 5 4 2
+	将其存放到数组中
+*/
+
+void GetFile();

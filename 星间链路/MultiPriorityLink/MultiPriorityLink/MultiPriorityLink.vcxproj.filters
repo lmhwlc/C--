@@ -15,13 +15,13 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Info.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
     <ClInclude Include="Satelite.h">
       <Filter>头文件</Filter>
     </ClInclude>
-    <ClInclude Include="ChainStrategy.h">
+    <ClInclude Include="AccessDate.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="LinkStrategy.h">
       <Filter>头文件</Filter>
     </ClInclude>
   </ItemGroup>
@@ -30,6 +30,9 @@
       <Filter>源文件</Filter>
     </ClCompile>
     <ClCompile Include="MutiPriorityLink.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="AccessDate.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
   </ItemGroup>

@@ -2,10 +2,18 @@
 //
 
 #include <iostream>
-#include"test.h"
+
+#include"mutiIO.h"
+#include"thread.h"
+#include"stl.h"
+#include"Singleton.h"
+#include"memory.h"
+#include"Observer.h"
+#include"override.h"
+
 
 int main()
 {
-	TestStl();
+	ObserverTest();
 	return 0;
 }

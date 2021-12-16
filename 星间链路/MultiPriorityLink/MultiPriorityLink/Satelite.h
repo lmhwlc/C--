@@ -6,6 +6,7 @@ class Satelite
 private:
 	//卫星的属性信息
 	string name;			//卫星的名字
+	int accessSatNum;		//当前卫星可见的卫星数量
 	bool JNX;				//标志卫星属于境内星还是境外星
 	bool link;				//标志卫星是否连接通信
 	bool send;				//卫星是否发送信息

@@ -38,7 +38,7 @@ public:
 	}
 
 };
-SingletonA* SingletonA::pInstance = nullptr;
+
 
 
 //饿汉式实现单例模式,在构造函数
@@ -65,4 +65,6 @@ public:
 		cout << "饿汉式 :" << m << endl;
 	}
 };
-SingletonB SingletonB::instance;
+
+
+void SingletonTest();

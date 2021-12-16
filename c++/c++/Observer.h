@@ -89,3 +89,4 @@ public:
 	}
 };
 
+void ObserverTest();

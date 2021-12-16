@@ -65,9 +65,6 @@
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="test.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
     <ClInclude Include="Observer.h">
       <Filter>头文件\设计模式</Filter>
     </ClInclude>

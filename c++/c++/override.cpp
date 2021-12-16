@@ -1,5 +1,16 @@
 #include"override.h"
 
+void fun(int a, int b)
+{
+	cout << a << " " << b << endl;
+}
+
+void fun(int a)
+{
+	cout << a << endl;
+}
+
+
 void OverrideTest()
 {
 	const int a = 3;
