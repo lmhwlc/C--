@@ -4,59 +4,34 @@
 #include<iostream>
 using namespace std;
 
-//统计每个卫星的可见卫星数量（境内星，境外星）
-void GetAccessSatNum(vector<vector<bool>>& VecSatToSat, vector<bool>& VecIsJnx)
+struct satelite
 {
-	int cnt1 = 0, cnt2 = 0;
-	vector<vector<int>> AccessSatNum(SatNum + 1);
-	for (int i = 1; i <= SatNum - 6; i++)
-	{
-		if (VecIsJnx[i] == true)
-		{
-			for (int j = 1; j <= SatNum; j++)
-			{
-				if (VecSatToSat[i][j] == true)
-				{
-					VecIsJnx[j] == false ? cnt1++ : cnt2++;
-				}
-			}
-		}
-		else
-		{
-			for (int j = 1; j <= SatNum; j++)
-			{
-				if (VecSatToSat[i][j] == true)
-				{
-					VecIsJnx[j] == true ? cnt1++ : cnt2++;
-				}
-			}
-		}
-		AccessSatNum[i].push_back(cnt1);
-		AccessSatNum[i].push_back(cnt2);
-		cnt1 = 0;
-		cnt2 = 0;
-	}
-}
+	int number;				//卫星编号
+	int InNum;				//可见境内星数量
+	int OutNum;				//可见境外星数量
+	set<int> LinkSats;		//卫星的链路情况
+	vector<int> InSat;		//可见境内星
+	vector<int> OutSat;		//可见境外星
+};
 
-//获取可见性矩阵
-void GetSatToSat(vector<vector<int>>& VecSatToSat, vector<int>& JNX)
-{
-	ifstream infile;
-	string filename = "E:\\Code\\git\\C--\\星间链路\\卫星可见性矩阵\\0.txt";
-	string filename1 = "E:\\Code\\git\\C--\\星间链路\\境内星\\0.txt";
-	infile.open(filename);
-	for (int i = 1; i <= SatNum; i++)
-	{
-		for (int j = 1; j <= SatNum; j++)
-		{
-			infile >> VecSatToSat[i][j];
-		}
-	}
-	infile.close();
-	infile.open(filename1);
-	int item;
-	while (infile >> item)
-	{
-		JNX.push_back(item);
-	}
-}
+
+//获取所有的数据信息
+void GetAllInfo();
+
+//统计每个卫星的可见卫星数量（境内星，境外星）
+void InitialSatInfo();
+
+/*
+	将境外星建链的顺序按可见境内星数量从小到大排序，境内星数量相同的则按可见境外星的数量从大到小排序
+	将境内星被分配的顺序按其可见境外星的数量从小到大排序,境外星数量相同则按可见境内星数量从大到小排序
+*/
+void CreatLink();
+
+//打印时隙表
+void PrintTimeSlotTable();
+
+//统计每个境外星的链路数量
+void GetJwxLinks();
+
+//统计时延情况
+void CalJump();

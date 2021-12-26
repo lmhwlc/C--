@@ -352,32 +352,51 @@ void GetAnsMeo(vector<vector<vector<bool>>>& vec, int StateNum)
 }
 
 
-void GetALlAns()
+void SaveALlInfo()
 {
 	int StateNum = PeriodNum / StateLength;
 	GetStateAccess(StateLength);
 	DivideState(StateNum);
-	string filename = "E:\\Code\\git\\C--\\星间链路\\卫星可见性矩阵\\";
-	string filename1 = "E:\\Code\\git\\C--\\星间链路\\境内星\\";
+	string filename1 = "E:\\Code\\git\\C--\\星间链路\\卫星可见性矩阵\\";
+	string filename2 = "E:\\Code\\git\\C--\\星间链路\\境内星\\";
+	string filename3 = "E:\\Code\\git\\C--\\星间链路\\静态链路\\";
 	ofstream file;
-	ofstream file1;
-	for (int i = 0; i < StateNum; i++)
+
+	//for (int i = 0; i < StateNum; i++)
+	//{
+	//	file.open(filename1 + to_string(i) + ".txt");
+
+	//	for (int j = 1; j <= SatNum; j++)
+	//	{
+	//		for (int k = 1; k <= SatNum; k++)
+	//		{
+	//			file << setw(6) << left << VecStateSatSat[i][j][k];
+	//		}
+	//		file << endl;
+	//	}
+	//	file.close();
+	//}
+	//
+	//for (int i = 0; i < StateNum; i++)
+	//{
+	//	file.open(filename2 + to_string(i) + ".txt");
+	//	for (int j = 1; j <= SatNum; j++)
+	//	{
+	//		if (VecStateIsJnx[i][j] == true)
+	//			file << setw(6) << left << j;
+	//	}
+	//	file.close();
+	//}
+	
+	file.open(filename3 + "staticlinks.txt");
+	for (int i = 1; i <= SatNum - 6; i++)
 	{
-		file.open(filename + to_string(i) + ".txt");
-		file1.open(filename1 + to_string(i) + ".txt");
-		for (int j = 1; j <= SatNum; j++)
-		{
-			if (VecStateIsJnx[i][j] == true)
-				file1 << setw(6) << left << j;
-			for (int k = 1; k <= SatNum; k++)
-			{
-				file << setw(6) << left << VecStateSatSat[i][j][k];
-			}
-			file << endl;
-		}
-		file1.close();
-		file.close();
+		for (auto it : VecStaticLinks[i])
+			file << setw(6) << left << it;
+		file << endl;
 	}
+	file.close();
+
 	//GetAnsMeo(VecStateSatSat, StateNum);
 }
 

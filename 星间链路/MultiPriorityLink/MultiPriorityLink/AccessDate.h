@@ -62,7 +62,6 @@ int GetAccessPoint(vector<vector<vector<bool>>>& vec, int CurPoint, int StateNum
 void GetAnsMeo(vector<vector<vector<bool>>>& vec, int StateNum);
 
 
-//MEO11在1,5，10分钟的超帧长度下的统计情况
-void GetALlAns();
+//保存不同时隙长度下的可见性信息
+void SaveALlInfo();
 
-//

@@ -24,6 +24,9 @@
     <ClInclude Include="LinkStrategy.h">
       <Filter>头文件</Filter>
     </ClInclude>
+    <ClInclude Include="RouteStrategy.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Satelite.cpp">
@@ -33,6 +36,12 @@
       <Filter>源文件</Filter>
     </ClCompile>
     <ClCompile Include="AccessDate.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="LinkStrategy.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="RouteStrategy.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
   </ItemGroup>
