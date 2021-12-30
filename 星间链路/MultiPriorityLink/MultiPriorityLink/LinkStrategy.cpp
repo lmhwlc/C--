@@ -191,8 +191,8 @@ void PrintTimeSlotTable()
 {
 	for (int j = 1; j <= SatNum - 6; j++)
 	{
-		if (VecIsJnx[j] == true)
-			continue;
+		//if (VecIsJnx[j] == true)
+			//continue;
 		cout << j << "	";
 		for (int i = 0; i < slot; i++)
 		{	
