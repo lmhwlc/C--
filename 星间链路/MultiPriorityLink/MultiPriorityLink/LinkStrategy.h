@@ -16,7 +16,7 @@ struct satelite
 
 
 //获取所有的数据信息
-void GetAllInfo();
+void GetAllInfo(int num);
 
 //统计每个卫星的可见卫星数量（境内星，境外星）
 void InitialSatInfo();
@@ -27,6 +27,9 @@ void InitialSatInfo();
 */
 void CreatLink();
 
+//判断时隙表中的跳数约束
+bool JudgeJump();
+
 //打印时隙表
 void PrintTimeSlotTable();
 
@@ -35,3 +38,6 @@ void GetJwxLinks();
 
 //统计时延情况
 void CalJump();
+
+//获取一个周期的时隙表
+void GetAllSlot(int stateNum);

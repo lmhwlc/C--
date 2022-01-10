@@ -9,7 +9,7 @@ using namespace std;
 
 const int PeriodNum = 8640;			//回归周期的时隙数目
 const int SatNum = 30;				//星座中的卫星数目
-const int LandNum = 2;				//地面站的数量
+const int LandNum = 4;				//地面站的数量
 
 //获取状态可视矩阵
 void GetStateAccess(int);

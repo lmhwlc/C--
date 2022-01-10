@@ -20,7 +20,7 @@ vector<vector<vector<bool>>> VecStateSatSat;	//每个状态的星间可见性
 vector<vector<vector<bool>>> VecStateLandSat;	//每个状态的星地可见性
 vector<unordered_set<int>> VecStaticLinks;		//静态链路
 
-int StateLength = 10;			//状态长度
+int StateLength = 1;			//状态长度
 
 void GetStateAccess(int length)
 {
@@ -73,6 +73,8 @@ void InitialData()
 
 	MapCraftIndex["1"] = 1;
 	MapCraftIndex["2"] = 2;
+	MapCraftIndex["3"] = 3;
+	MapCraftIndex["4"] = 4;
 }
 
 
@@ -216,7 +218,7 @@ void DivideState(int StateNum)
 void PrintSatSatAccess(vector<vector<bool>>& VecSatSat, vector<bool>& VecJnx)
 {
 	cout << "打印当前状态下的星间可见性情况" << endl;
-	for (int i = 1; i <= SatNum - 1; i++)
+	for (int i = 1; i <= SatNum; i++)
 	{
 		cout << setw(6) << left << i;
 		for (int j = 1; j <= SatNum; j++)
@@ -252,7 +254,7 @@ void GetSatLandInfo()
 	string meo_meo = "MM.csv";
 	string meo_geo = "GM.csv";
 	string land_meo = "LM.csv";
-	string land_geo = "LG.csv";
+	string land_geo = "L_G.csv";
 
 	InitialData();
 
@@ -362,31 +364,31 @@ void SaveALlInfo()
 	string filename3 = "E:\\Code\\git\\C--\\星间链路\\静态链路\\";
 	ofstream file;
 
-	//for (int i = 0; i < StateNum; i++)
-	//{
-	//	file.open(filename1 + to_string(i) + ".txt");
+	for (int i = 0; i < StateNum; i++)
+	{
+		file.open(filename1 + to_string(i) + ".txt");
 
-	//	for (int j = 1; j <= SatNum; j++)
-	//	{
-	//		for (int k = 1; k <= SatNum; k++)
-	//		{
-	//			file << setw(6) << left << VecStateSatSat[i][j][k];
-	//		}
-	//		file << endl;
-	//	}
-	//	file.close();
-	//}
-	//
-	//for (int i = 0; i < StateNum; i++)
-	//{
-	//	file.open(filename2 + to_string(i) + ".txt");
-	//	for (int j = 1; j <= SatNum; j++)
-	//	{
-	//		if (VecStateIsJnx[i][j] == true)
-	//			file << setw(6) << left << j;
-	//	}
-	//	file.close();
-	//}
+		for (int j = 1; j <= SatNum; j++)
+		{
+			for (int k = 1; k <= SatNum; k++)
+			{
+				file << setw(6) << left << VecStateSatSat[i][j][k];
+			}
+			file << endl;
+		}
+		file.close();
+	}
+	
+	for (int i = 0; i < StateNum; i++)
+	{
+		file.open(filename2 + to_string(i) + ".txt");
+		for (int j = 1; j <= SatNum; j++)
+		{
+			if (VecStateIsJnx[i][j] == true)
+				file << setw(6) << left << j;
+		}
+		file.close();
+	}
 	
 	file.open(filename3 + "staticlinks.txt");
 	for (int i = 1; i <= SatNum - 6; i++)

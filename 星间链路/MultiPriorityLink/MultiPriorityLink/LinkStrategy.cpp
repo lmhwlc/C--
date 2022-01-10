@@ -1,6 +1,8 @@
 #include"LinkStrategy.h"
 #include <algorithm>
 #include<queue>
+#include <stdlib.h>
+#include<time.h>
 
 vector<satelite> jnx;
 vector<satelite> jwx;
@@ -11,15 +13,43 @@ vector<vector<int>> VecStaticLinks(SatNum - 5, vector<int>(8));				//´æ·ÅÃ¿¸öÎÀÐ
 
 int slot = 20;																//Ê±Ï¶Êý
 vector<vector<int>> TimeSlotTable(SatNum + 1, vector<int>(slot + 10));		//Ê±Ï¶±í
-										
 
-void GetAllInfo()
+
+static bool CompareIn(satelite sat1, satelite sat2)
+{
+	if (sat1.OutNum == sat2.OutNum)
+		return sat1.InNum > sat2.InNum;
+	return sat1.OutNum < sat2.OutNum;
+}
+
+static bool CompareOut(satelite sat1, satelite sat2)
+{
+	if (sat1.InNum == sat2.InNum)
+		return sat1.OutNum > sat2.OutNum;
+	return sat1.InNum < sat2.InNum;
+}
+
+void InitialInfo()
+{
+	vector<satelite>().swap(jnx);
+	vector<satelite>().swap(jwx);
+	vector<bool>(SatNum + 1).swap(VecIsJnx);
+	vector<satelite>(SatNum + 1).swap(VecSat);
+	vector<vector<bool>>(SatNum + 1, vector<bool>(SatNum + 1)).swap(VecSatToSat);
+	vector<vector<int>>(SatNum + 1, vector<int>(slot + 10)).swap(TimeSlotTable);
+}
+
+void GetAllInfo(int num)
 {
 	ifstream infile;
-	string filename1 = "E:\\Code\\git\\C--\\ÐÇ¼äÁ´Â·\\ÎÀÐÇ¿É¼ûÐÔ¾ØÕó\\0.txt";
-	string filename2 = "E:\\Code\\git\\C--\\ÐÇ¼äÁ´Â·\\¾³ÄÚÐÇ\\0.txt";
+	string filename1 = "E:\\Code\\git\\C--\\ÐÇ¼äÁ´Â·\\ÎÀÐÇ¿É¼ûÐÔ¾ØÕó\\";
+	string filename2 = "E:\\Code\\git\\C--\\ÐÇ¼äÁ´Â·\\¾³ÄÚÐÇ\\";
 	string filename3 = "E:\\Code\\git\\C--\\ÐÇ¼äÁ´Â·\\¾²Ì¬Á´Â·\\staticlinks.txt";
 	
+	filename1 += to_string(num) + ".txt";
+	filename2 += to_string(num) + ".txt";
+
+
 	infile.open(filename1);
 	for (int i = 1; i <= SatNum; i++)
 	{
@@ -50,7 +80,7 @@ void GetAllInfo()
 	}
 	infile.close();
 
-	PrintSatSatAccess(VecSatToSat, VecIsJnx);
+	//PrintSatSatAccess(VecSatToSat, VecIsJnx);
 	PrintSatLandAccess(VecIsJnx);
 }
 
@@ -76,25 +106,7 @@ void InitialSatInfo()
 			}
 		}
 	}
-}
 
-static bool CompareIn(satelite sat1, satelite sat2)
-{
-	if (sat1.OutNum == sat2.OutNum)
-		return sat1.InNum > sat2.InNum;
-	return sat1.OutNum < sat2.OutNum;
-}
-
-static bool CompareOut(satelite sat1, satelite sat2)
-{
-	if (sat1.InNum == sat2.InNum)
-		return sat1.OutNum > sat2.OutNum;
-	return sat1.InNum < sat2.InNum;
-}
-
-void CreatLink()
-{
-	vector<satelite> priorSat;
 	for (int i = 1; i <= SatNum; i++)
 	{
 		if (VecIsJnx[i] == true)
@@ -103,54 +115,28 @@ void CreatLink()
 			jwx.push_back(VecSat[i]);
 	}
 	sort(jwx.begin(), jwx.end(), CompareOut);
+}
 
+void CreatLink()
+{
+	vector<vector<int>>(SatNum + 1, vector<int>(slot + 10)).swap(TimeSlotTable);
+	srand(time(NULL));
 	for(auto it : jwx)
 	{
 		int from = it.number;
+		if (from > 24)
+			continue;
 		int in = 0;
 		int out = 0;
 		int _in = 0;
 		int _out = 0;
 		int inSz = it.InSat.size();
 		int outSz = it.OutSat.size();
-		if (from > 24)
-			continue;
+		int loop = rand() % 10;
 		for (int i = 0; i < slot + 10; i++)
 		{
 			int cnt = 0;
-			if (i % 3 == 0 || i % 3 == 1)
-			{
-				while (1)
-				{
-					int to = it.InSat[in++%inSz];
-					if (TimeSlotTable[to][i] == 0)
-					{
-						TimeSlotTable[from][i] = to;
-						TimeSlotTable[to][i] = from;
-						break;
-					}
-					cnt++;
-					if (cnt == inSz)
-					{
-						int outCnt = 0;
-						while (1)
-						{
-							int to = it.OutSat[_out++%outSz];
-							if (TimeSlotTable[to][i] == 0)
-							{
-								TimeSlotTable[from][i] = to;
-								TimeSlotTable[to][i] = from;
-								break;
-							}
-							outCnt++;
-							if (outCnt == outSz)
-								break;
-						}
-						break;
-					}
-				}
-			}
-			else
+			if ((loop + i) % 3 == 1)
 			{
 				while (1)
 				{
@@ -182,17 +168,68 @@ void CreatLink()
 					}
 				}
 			}
+			else
+			{
+				while (1)
+				{
+					int to = it.InSat[in++%inSz];
+					if (TimeSlotTable[to][i] == 0)
+					{
+						TimeSlotTable[from][i] = to;
+						TimeSlotTable[to][i] = from;
+						break;
+					}
+					cnt++;
+					if (cnt == inSz)
+					{
+						int outCnt = 0;
+						while (1)
+						{
+							int to = it.OutSat[_out++%outSz];
+							if (TimeSlotTable[to][i] == 0)
+							{
+								TimeSlotTable[from][i] = to;
+								TimeSlotTable[to][i] = from;
+								break;
+							}
+							outCnt++;
+							if (outCnt == outSz)
+								break;
+						}
+						break;
+					}
+				}
+			}
 		}
+		//loop++;
 		//PrintTimeSlotTable();
 	}
 }
 
+bool JudgeJump()
+{
+	for (int i = 0; i < slot; i++)
+	{
+		for (auto it : jwx)
+		{
+			int from = it.number;
+			if (from > 24)
+				continue;
+			int to = TimeSlotTable[from][i];
+			int to1 = TimeSlotTable[from][i + 1];
+			int to2 = TimeSlotTable[to][i + 1];
+			if (VecIsJnx[to] == false && VecIsJnx[to1] == false && VecIsJnx[to2] == false)
+				return false;
+		}
+	}
+	return true;
+}
 void PrintTimeSlotTable()
 {
 	for (int j = 1; j <= SatNum - 6; j++)
 	{
-		//if (VecIsJnx[j] == true)
-			//continue;
+		if (VecIsJnx[j] == true)
+			continue;
 		cout << j << "	";
 		for (int i = 0; i < slot; i++)
 		{	
@@ -249,7 +286,7 @@ void CalJump()
 				else
 				{
 					jump3++;
-					cout << from << " Ê±Ï¶Îª£º" << i << endl;
+					cout <<"ÎÀÐÇ£º"<< from << " Ê±Ï¶Îª£º" << i << endl;
 					cout << "´æÔÚÈýÌøµÄÇé¿ö£¬ÇëÖØÐÂ¹æ»®Á´Â·" << endl;
 				}
 			}
@@ -262,4 +299,29 @@ void CalJump()
 	cout << "¶þÌøÇé¿ö£º" << jump2 << "Õ¼±È£º" << jump2 / jump << endl;
 	cout << "ÈýÌøÇé¿ö£º" << jump3 << "Õ¼±È£º" << jump3 / jump << endl;
 	cout << "Æ½¾ùÌøÊýÎª£º" << avgJump << endl;
+}
+
+void GetAllSlot(int stateNum)
+{
+	for (int i = 0; i < stateNum; i++)
+	{
+		cout << "µÚ" << i << "¸ö×´Ì¬ÏÂµÄÊ±Ï¶ºÍÂ·ÓÉÇé¿ö£º" << endl << endl;
+		InitialInfo();
+		GetAllInfo(i);
+		InitialSatInfo();
+
+		CreatLink();
+		while (!JudgeJump())
+		{
+			vector<vector<int>>(SatNum + 1, vector<int>(slot + 10)).swap(TimeSlotTable);
+			CreatLink();
+		}
+		//PrintTimeSlotTable();
+
+		GetJwxLinks();
+		CalJump();
+
+		cout << "-------------------------------------------------------------------------------------" << endl;
+		cout << "-------------------------------------------------------------------------------------" << endl;
+	}
 }

@@ -29,9 +29,6 @@
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="Satelite.cpp">
-      <Filter>源文件</Filter>
-    </ClCompile>
     <ClCompile Include="MutiPriorityLink.cpp">
       <Filter>源文件</Filter>
     </ClCompile>

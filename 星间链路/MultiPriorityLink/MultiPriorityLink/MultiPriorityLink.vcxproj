@@ -125,7 +125,6 @@
     <ClCompile Include="LinkStrategy.cpp" />
     <ClCompile Include="MutiPriorityLink.cpp" />
     <ClCompile Include="RouteStrategy.cpp" />
-    <ClCompile Include="Satelite.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

@@ -8,19 +8,25 @@ using namespace std;
 
 int main()
 {
-	//GetSatLandInfo();
-	//SaveALlInfo();
+	GetSatLandInfo();
+	SaveALlInfo();
 
-	GetAllInfo();
-	InitialSatInfo();
+	//GetAllInfo(1371);
+	//InitialSatInfo();
 
-	CreatLink();
+	//CreatLink();
+	//while (!JudgeJump())
+	//{
+	//	CreatLink();
+	//	PrintTimeSlotTable();
+	//}
 
-	PrintTimeSlotTable();
-	
-	GetJwxLinks();
-	CalJump();
+	//PrintTimeSlotTable();
 
+	//GetJwxLinks();
+	//CalJump();
+
+	GetAllSlot(8639);
 	cout << "hello world !" << endl;
 	cout << endl;
 	cout << endl;
